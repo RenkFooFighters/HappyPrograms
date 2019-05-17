@@ -1,0 +1,58 @@
+﻿@model IEnumerable<AgendaTelefonica.Models.Entidades.Clientes>
+
+@{
+    ViewBag.Title = "Agenda";
+}
+
+<h2>Agenda</h2>
+
+<p>
+    @Html.ActionLink("Adicionar Telefone", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RazaoSocial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CNPJ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DDD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelefoneCorporativo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelefoneCelCorporativo)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RazaoSocial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CNPJ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DDD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefoneCorporativo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefoneCelCorporativo)
+        </td>
+
+        <td>
+            @Html.ActionLink("Editar", "UpdateTelefone", new { id=item.Id }) |
+            @Html.ActionLink("Deletar", "Deletar", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
